@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Linda Mama</title>
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body class="bg-light">
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-primary text-white px-3">
+        <div class="container-fluid">
+            <!-- Profile Icon on the Left -->
+            <a class="navbar-brand text-white d-flex align-items-center" href="#">
+                <img src="{{ url_for('static', filename='images/profile.png') }}" alt="Profile" class="rounded-circle me-2"
+                    width="40" height="40">
+                <span>Welcome, User</span>
+            </a>
+    
+            <!-- Dropdown Menu on the Right -->
+            <div class="dropdown ms-auto">
+                <button class="btn text-white dropdown-toggle" type="button" id="userDropdown" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    ☰
+                </button>
+                <ul class="dropdown-menu dropdown-menu-end">
+                    <li><a class="dropdown-item" href="dashboard.html">Dashboard</a></li>
+                    <li><a class="dropdown-item" href="profile.html">Profile & Settings</a></li>
+                    <li><a class="dropdown-item" href="tracker.html">Pregnancy Tracker & Health Monitoring</a></li>
+                    <li><a class="dropdown-item" href="nutrition.html">Meal Plan, Nutrition & Mental health</a></li>
+                    <li><a class="dropdown-item" href="comm_and_support.html">Community & Support</a></li>
+                    <li><a class="dropdown-item" href="emergency.html">Emergency Contacts</a></li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item text-danger" href="logout.html">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Main Content -->
+    <div class="container mt-4">
+
+        <!-- Pregnancy Summary -->
+        <div class="row mb-3">
+            <div class="col-md-4">
+                <div class="card p-3 text-center bg-white shadow-sm">
+                    <h6 class="text-primary">Pregnancy Summary</h6>
+                    <p>Trimester: <span class="text-danger">2nd</span>, Week: 16</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card p-3 text-center bg-white shadow-sm">
+                    <h6 class="text-primary">Weight</h6>
+                    <p class="text-dark">68 kg</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card p-3 text-center bg-white shadow-sm">
+                    <h6 class="text-primary">Blood Pressure</h6>
+                    <p class="text-dark">120/80 mmHg</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sidebar & Appointments -->
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-md-3">
+                <div class="card p-3 text-center mb-3 bg-white shadow-sm">
+                    <h6 class="text-primary">Next Appointment</h6>
+                    <p class="text-danger">March 10, 2025</p>
+                    <p class="text-dark"><strong>Time:</strong> 10:00 AM</p> <!-- Added time -->
+                </div>
+                <div class="card p-3 text-center bg-white shadow-sm">
+                    <h6 class="text-primary">Daily Meds</h6>
+                    <p>Folic Acid, Iron</p>
+                </div>
+            </div>
+
+
+            <!-- Appointments Table -->
+            <div class="col-md-9">
+                <div class="card p-3 bg-white shadow-sm">
+                    <h6 class="text-primary">Upcoming Appointments with Dr. Achieng</h6>
+                    <table class="table">
+                        <thead>
+                            <tr class="bg-primary text-white">
+                                <th>Date</th>
+                                <th>Time</th>
+                                <th>Type</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>March 10, 2025</td>
+                                <td>10:00 AM</td>
+                                <td>Check-up</td>
+                            </tr>
+                            <tr>
+                                <td>March 24, 2025</td>
+                                <td>2:30 PM</td>
+                                <td>Ultrasound</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Health Tips Section -->
+        <div class="card p-3 mt-3 bg-white shadow-sm">
+            <h6 class="text-primary">Health Tips: Did You Know?</h6>
+            <p id="healthTip">Loading...</p> <!-- Dynamic health tip -->
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+<footer class="text-center mt-4 p-3 bg-white text-dark">
+    <p>&copy; 2025 Linda Mama. All rights reserved.</p>
+</footer>
+
+
+    <script src="static/js/script.js"></script>
+</body>
+
+</html>
