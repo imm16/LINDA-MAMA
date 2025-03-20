@@ -8,6 +8,42 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <title>Mental Health</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        .card {
+            margin-bottom: 20px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .card-header {
+            background-color: #e9ecef;
+            font-weight: bold;
+        }
+
+        .btn-primary,
+        .bg-primary {
+            background-color: #6c63ff !important;
+            border-color: #6c63ff !important;
+        }
+
+        .btn-secondary {
+            background-color: #a8a29e !important;
+            border-color: #a8a29e !important;
+        }
+
+        footer {
+            background-color: #6c63ff !important;
+        }
+
+        #affirmationBox {
+            font-style: italic;
+        }
+    </style>
 </head>
 
 <body>
@@ -43,103 +79,135 @@
     </nav>
     <!-- Main Content -->
     <div class="container my-5">
-        <h1 class="text-center mb-4">🧠 Mental Health & Well-being</h1>
-
+        <h1 class="text-center mb-5">🧠 Mental Health & Well-being</h1>
         <div class="row">
-            <!-- Left Column -->
             <div class="col-md-6">
-                <h3>🥗 My Meal Plan</h3>
-                <p>Nutrition plays a key role in mental wellness. Stick to a balanced diet rich in vitamins and
-                    nutrients.</p>
-
-                <h3>🏋️ My Exercise Routine</h3>
-                <p>Staying active helps reduce stress and improves mood. Engage in light exercises like walking, yoga,
-                    or stretching.</p>
-
-                <h3>💆‍♀️ My Mental Wellness</h3>
-                <p>Ensure you get enough sleep, practice relaxation techniques, and take breaks when needed.</p>
-
-                <h3>📅 Daily Check-in</h3>
-                <form>
-                    <div class="mb-3">
-                        <label class="form-label">How are you feeling today?</label>
+                <div class="card">
+                    <div class="card-header">🥗 My Meal Plan</div>
+                    <div class="card-body">
+                        <p>Nutrition plays a key role in mental wellness. Stick to a balanced diet rich in vitamins and
+                            nutrients.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">🏋️ My Exercise Routine</div>
+                    <div class="card-body">
+                        <p>Staying active helps reduce stress and improves mood. Engage in light exercises like walking,
+                            yoga, or stretching.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">💆‍♀️ My Mental Wellness</div>
+                    <div class="card-body">
+                        <p>Ensure you get enough sleep, practice relaxation techniques, and take breaks when needed.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">📅 Daily Check-in</div>
+                    <div class="card-body">
+                        <form>
+                            <div class="mb-3">
+                                <label class="form-label">How are you feeling today?</label>
+                                <select class="form-select">
+                                    <option>Happy 😊</option>
+                                    <option>Stressed 😰</option>
+                                    <option>Tired 😴</option>
+                                    <option>Calm 😌</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-danger w-100">Submit</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">📖 Journaling Section</div>
+                    <div class="card-body">
+                        <textarea class="form-control" rows="4"
+                            placeholder="Write about your pregnancy experiences, emotions, or gratitude..."></textarea>
+                        <button class="btn btn-danger mt-2 w-100">Save Entry</button>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">💤 Sleep Quality Tracker</div>
+                    <div class="card-body">
+                        <label class="form-label">How was your sleep last night?</label>
+                        <select class="form-select mb-2">
+                            <option>Great 😴</option>
+                            <option>Okay 😐</option>
+                            <option>Poor 😵</option>
+                        </select>
+                        <button class="btn btn-danger w-100">Log Sleep</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">🧘 Mindfulness Tips</div>
+                    <div class="card-body">
+                        <ul>
+                            <li>Take deep breaths and stay present.</li>
+                            <li>Write down three things you're grateful for.</li>
+                            <li>Take short walks outdoors for fresh air.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">🌿 Relaxation Techniques</div>
+                    <div class="card-body">
+                        <p>Try meditation, listening to calming music, or spending time in nature.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">🌈 Mood Tracker</div>
+                    <div class="card-body">
+                        <label class="form-label">Select your mood:</label>
                         <select class="form-select">
                             <option>Happy 😊</option>
-                            <option>Stressed 😰</option>
-                            <option>Tired 😴</option>
-                            <option>Calm 😌</option>
+                            <option>Excited 😃</option>
+                            <option>Neutral 😐</option>
+                            <option>Sad 😢</option>
+                            <option>Anxious 😟</option>
                         </select>
+                        <label class="form-label mt-2">Notes (Triggers or Positive Moments)</label>
+                        <textarea class="form-control" rows="2" placeholder="Describe your day..."></textarea>
+                        <button class="btn btn-danger mt-2 w-100">Save Mood</button>
                     </div>
-                    <button type="submit" class="btn btn-primary w-100">Submit</button>
-                </form>
-
-                <h3>📖 Journaling Section</h3>
-                <textarea class="form-control" rows="4"
-                    placeholder="Write about your pregnancy experiences, emotions, or gratitude..."></textarea>
-                <button class="btn btn-secondary mt-2 w-100">Save Entry</button>
-
-                <h3>💤 Sleep Quality Tracker</h3>
-                <label class="form-label">How was your sleep last night?</label>
-                <select class="form-select mb-2">
-                    <option>Great 😴</option>
-                    <option>Okay 😐</option>
-                    <option>Poor 😵</option>
-                </select>
-                <button class="btn btn-secondary w-100">Log Sleep</button>
-            </div>
-
-            <!-- Right Column -->
-            <div class="col-md-6">
-                <h3>🧘 Mindfulness Tips</h3>
-                <ul>
-                    <li>Take deep breaths and stay present.</li>
-                    <li>Write down three things you're grateful for.</li>
-                    <li>Take short walks outdoors for fresh air.</li>
-                </ul>
-
-                <h3>🌿 Relaxation Techniques</h3>
-                <p>Try meditation, listening to calming music, or spending time in nature.</p>
-
-                <h3>🌈 Mood Tracker</h3>
-                <label class="form-label">Select your mood:</label>
-                <select class="form-select">
-                    <option>Happy 😊</option>
-                    <option>Excited 😃</option>
-                    <option>Neutral 😐</option>
-                    <option>Sad 😢</option>
-                    <option>Anxious 😟</option>
-                </select>
-                <label class="form-label mt-2">Notes (Triggers or Positive Moments)</label>
-                <textarea class="form-control" rows="2" placeholder="Describe your day..."></textarea>
-                <button class="btn btn-secondary mt-2 w-100">Save Mood</button>
-
-                <h3>💌 Positive Affirmations</h3>
-                <blockquote class="blockquote text-center bg-light p-3 rounded" id="affirmationBox">
-                    "You are strong, capable, and loved. Your journey is beautiful."
-                </blockquote>
-                <button class="btn btn-primary w-100" id="newAffirmation">New Affirmation</button>
-
-                <h3>🛀 Self-Care Activities</h3>
-                <ul>
-                    <li>✨ Prenatal massage</li>
-                    <li>🌿 Aromatherapy</li>
-                    <li>💃 Light stretching</li>
-                    <li>📖 Reading a book</li>
-                    <li>🎶 Listening to calming music</li>
-                </ul>
-
-                <h3>🆘 Coping Strategies</h3>
-                <ul>
-                    <li>📅 Maintain a daily routine to reduce stress.</li>
-                    <li>💬 Talk to someone about your emotions.</li>
-                    <li>🌻 Focus on what you can control.</li>
-                    <li>💖 Practice self-compassion and patience.</li>
-                </ul>
+                </div>
+                <div class="card">
+                    <div class="card-header">💌 Positive Affirmations</div>
+                    <div class="card-body">
+                        <blockquote class="blockquote text-center bg-light p-3 rounded" id="affirmationBox">
+                            "You are strong, capable, and loved. Your journey is beautiful."
+                        </blockquote>
+                        <button class="btn btn-danger w-100" id="newAffirmation">New Affirmation</button>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">🛀 Self-Care Activities</div>
+                    <div class="card-body">
+                        <ul>
+                            <li>✨ Prenatal massage</li>
+                            <li>🌿 Aromatherapy</li>
+                            <li>💃 Light stretching</li>
+                            <li>📖 Reading a book</li>
+                            <li>🎶 Listening to calming music</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">🆘 Coping Strategies</div>
+                    <div class="card-body">
+                        <ul>
+                            <li>📅 Maintain a daily routine to reduce stress.</li>
+                            <li>💬 Talk to someone about your emotions.</li>
+                            <li>🌻 Focus on what you can control.</li>
+                            <li>💖 Practice self-compassion and patience.</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-
-    <!-- Footer -->
     <footer class="bg-primary text-white text-center py-3 mt-5">
         © 2025 Linda Mama | Empowering Mothers, Supporting Wellness
     </footer>
@@ -151,6 +219,21 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
         integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
         crossorigin="anonymous"></script>
+    <script>
+        const affirmations = [
+            "You are doing great, mama.",
+            "You are stronger than you think.",
+            "Your body is amazing, and you are creating life.",
+            "Trust your instincts; you know what's best.",
+            "Each day is a new beginning."
+        ];
+        document.getElementById('newAffirmation').addEventListener('click', function () {
+            const randomAff= Math.floor(Math.random() * affirmations.length);
+        const randomAffirmation = affirmations[randomIndex];
+        document.getElementById('affirmationBox').textContent = randomAffirmation;
+    });
+    </script>
+   
 </body>
 
 </html>
