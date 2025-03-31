@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <title>Meal Plan</title>
+
+    <style>
+        /* .carousel-caption{
+            text-align: center;
+            left: 8%;
+            color: black;
+            
+        } */
+    </style>
+</head>
+
+<body>
+    <!-- Navbar Section -->
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-primary text-white px-3">
+        <div class="container-fluid">
+            <!-- Profile Icon on the Left -->
+            <a class="navbar-brand text-white d-flex align-items-center" href="#">
+                <img src="{{ url_for('static', filename='images/profile.png') }}" alt="Profile"
+                    class="rounded-circle me-2" width="40" height="40">
+            </a>
+
+            <!-- Dropdown Menu on the Right -->
+            <div class="dropdown ms-auto">
+                <button class="btn text-white dropdown-toggle" type="button" id="userDropdown" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    ☰
+                </button>
+                <ul class="dropdown-menu dropdown-menu-end">
+                    <li><a class="dropdown-item" href="dashboard.html">Dashboard</a></li>
+                    <li><a class="dropdown-item" href="profile.html">Profile & Settings</a></li>
+                    <li><a class="dropdown-item" href="tracker.html">Pregnancy Tracker & Health Monitoring</a></li>
+                    <li><a class="dropdown-item" href="mealplan.html">Meal Plan, Nutrition & Mental health</a></li>
+                    <li><a class="dropdown-item" href="comm_and_support.html">Community & Support</a></li>
+                    <li><a class="dropdown-item" href="emergency.html">Emergency Contacts</a></li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item text-danger" href="logout.html">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Grid Section -->
+    <div class="container">
+        <h1 class="text-center my-5">Meal Plan, Nutrition and Mental Health</h1>
+        <div class="container text-center">
+            <div class="row">
+                <div class="col">
+                    <button type="button" class="btn btn-danger btn-lg mb-5">Meal Plan</button>
+                </div>
+                <div class="col">
+                    <button type="button" class="btn btn-danger btn-lg mb-5"
+                        onclick="window.location.href='exerciseroutine.html';">Exercise Routine</button>
+                </div>
+                <div class="col">
+                    <button type="button" class="btn btn-danger btn-lg mb-5"
+                        onclick="window.location.href='mentalhealth.html';">Mental Health</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Meal Plan Tab -->
+
+        <div class="meal-section">
+            <div class="form-group">
+                <div class="container mt-5">
+                    <h2 class="text-center mb-4">Dietary Preferences</h2>
+                    <form action="/submit-dietary-preferences" method="POST" class="p-4 bg-white shadow rounded">
+
+                        <!-- Dietary Restrictions -->
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Dietary Restrictions</label>
+                            <div class="form-check">
+                                <input class="form-check-input diet-option" type="checkbox" name="dietary[]"
+                                    value="Meat">
+                                <label class="form-check-label">Meat-eater</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input diet-option" type="checkbox" name="dietary[]"
+                                    value="Vegetarian">
+                                <label class="form-check-label">Vegetarian</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input diet-option" type="checkbox" name="dietary[]"
+                                    value="Vegan">
+                                <label class="form-check-label">Vegan</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input diet-option" type="checkbox" name="dietary[]"
+                                    value="Pescatarian">
+                                <label class="form-check-label">Pescatarian</label>
+                            </div>
+                            <input type="text" class="form-control mt-2 diet-option" name="dietary_other"
+                                placeholder="Other (Specify)">
+                        </div>
+
+                        <!-- Food Allergies -->
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Food Allergies</label>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-check">
+                                        <input class="form-check-input allergy-option" type="checkbox"
+                                            name="allergies[]" value="Peanuts">
+                                        <label class="form-check-label">Peanuts</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input allergy-option" type="checkbox"
+                                            name="allergies[]" value="Dairy">
+                                        <label class="form-check-label">Dairy</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input allergy-option" type="checkbox"
+                                            name="allergies[]" value="Eggs">
+                                        <label class="form-check-label">Eggs</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-check">
+                                        <input class="form-check-input allergy-option" type="checkbox"
+                                            name="allergies[]" value="Gluten">
+                                        <label class="form-check-label">Gluten</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input allergy-option" type="checkbox"
+                                            name="allergies[]" value="Shellfish">
+                                        <label class="form-check-label">Shellfish</label>
+                                    </div>
+                                    <input type="text" class="form-control mt-2 allergy-option" name="allergy_other"
+                                        placeholder="Other (Specify)">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Cravings & Aversions -->
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Cravings</label>
+                            <input type="text" class="form-control" name="cravings"
+                                placeholder="What foods are you craving?">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Aversions</label>
+                            <input type="text" class="form-control" name="aversions"
+                                placeholder="What foods are you avoiding?">
+                        </div>
+
+                        <!-- Water Intake -->
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Water Intake (Daily Goal)</label>
+                            <select class="form-select" name="water_intake">
+                                <option value="1L">1L</option>
+                                <option value="2L">2L</option>
+                                <option value="3L+">3L+</option>
+                            </select>
+                        </div>
+
+                        <!-- Nutritional Focus -->
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Preferred Nutritional Focus</label>
+                            <div class="form-check">
+                                <input class="form-check-input nutrition-option" type="checkbox" name="nutrition[]"
+                                    value="High Protein">
+                                <label class="form-check-label">High Protein</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input nutrition-option" type="checkbox" name="nutrition[]"
+                                    value="Iron-Rich Foods">
+                                <label class="form-check-label">Iron-Rich Foods</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input nutrition-option" type="checkbox" name="nutrition[]"
+                                    value="Calcium-Rich Foods">
+                                <label class="form-check-label">Calcium-Rich Foods</label>
+                            </div>
+                        </div>
+
+                        <!-- Supplement Intake -->
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Supplements Taken</label>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="supplements[]"
+                                            value="Folic Acid">
+                                        <label class="form-check-label">Folic Acid</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="supplements[]"
+                                            value="Iron">
+                                        <label class="form-check-label">Iron</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="supplements[]"
+                                            value="Omega-3">
+                                        <label class="form-check-label">Omega-3</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="supplements[]"
+                                            value="Vitamin D">
+                                        <label class="form-check-label">Vitamin D</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Meal Frequency -->
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Meal Frequency</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="meal_frequency"
+                                    value="Small Frequent Meals">
+                                <label class="form-check-label">Small Frequent Meals</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="meal_frequency"
+                                    value="Three Full Meals">
+                                <label class="form-check-label">Three Full Meals</label>
+                            </div>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button type="submit" class="btn btn-success w-95 mb-4">Save Preferences</button>
+
+                        <!-- Generate Meal Plan -->
+                        <button type="button" class="btn btn-success w-100 mb-4" onclick="generateMealPlan()">Generate
+                            Meal
+                            Plan</button>
+                    </form>
+
+                    <!-- Meal Plan Section -->
+                    <div id="mealPlan" class="mt-5 p-4 bg-white shadow rounded d-none">
+                        <h3 class="text-center">Suggested Meal Plan</h3>
+                        <div class="mb-3">
+                            <h5>🥣 Breakfast</h5>
+                            <p id="breakfast"></p>
+                        </div>
+                        <div class="mb-3">
+                            <h5>🍛 Lunch</h5>
+                            <p id="lunch"></p>
+                        </div>
+                        <div class="mb-3">
+                            <h5>🍽️ Supper</h5>
+                            <p id="supper"></p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Nutrition Tips Carousel -->
+    <div id="nutritionTipsCarousel" class="carousel slide my-5 mx-auto" data-bs-ride="carousel"
+        style="width: 80%; height: 15px;">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="Images/positive-female-farmer-carries-harvested-vegetablesbeing-agriculture-store-owner-looks-away-with-happy-expression-isolated-beige-background-empty-space-your-promotion-healthy-food-concept.jpg"
+                    class="d-block w-100" alt="Tip 1">
+                <div class="carousel-caption d-md-block" style="left: 8%; text-align: left; color: black;">
+                    <h1>Stay Hydrated</h1>
+                    <p style="font-size: 20px;">Drink at least 8 glasses of water a day <br>to stay hydrated and support
+                        your pregnancy.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="Images/positive-female-farmer-carries-harvested-vegetablesbeing-agriculture-store-owner-looks-away-with-happy-expression-isolated-beige-background-empty-space-your-promotion-healthy-food-concept.jpg"
+                    class="d-block w-100" alt="Tip 2">
+                <div class="carousel-caption d-md-block" style="left: 8%; text-align: left; color: black;">
+                    <h1>Eat Iron-Rich Foods</h1>
+                    <p style="font-size: 20px;">Iron is essential during pregnancy <br> to help transport oxygen to your
+                        baby.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="Images/top-view-person-raising-salad-bowl.jpg" class="d-block w-100" alt="Tip 3">
+                <div class="carousel-caption d-md-block" style="right: 8%; text-align: right; color: black;">
+                    <h1>Include Healthy Fats</h1>
+                    <p style="font-size: 20px;">Omega-3 fatty acids are great <br> for your baby’s brain development.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#nutritionTipsCarousel"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#nutritionTipsCarousel"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+
+    <!-- Javascript Bootstrap -->
+    <script>
+        function generateMealPlan() {
+            // Get selected dietary preferences
+            let diet = Array.from(document.querySelectorAll('.diet-option:checked')).map(el => el.value);
+            let allergies = Array.from(document.querySelectorAll('.allergy-option:checked')).map(el => el.value);
+            let nutrition = Array.from(document.querySelectorAll('.nutrition-option:checked')).map(el => el.value);
+
+            // Default meal options
+            let mealOptions = {
+                "Breakfast": ["Oatmeal with banana", "Scrambled eggs with toast", "Smoothie with spinach and yogurt"],
+                "Lunch": ["Grilled chicken salad", "Lentil soup with whole grain bread", "Rice and beans with vegetables"],
+                "Supper": ["Grilled salmon with quinoa", "Vegetable stir-fry with tofu", "Baked sweet potato with avocado"]
+            };
+
+            // Adjust meals based on selections
+            if (diet.includes("Vegetarian")) {
+                mealOptions["Breakfast"] = ["Avocado toast", "Oatmeal with nuts", "Smoothie with almond milk"];
+                mealOptions["Lunch"] = ["Lentil soup", "Grilled vegetable wrap", "Chickpea salad"];
+                mealOptions["Supper"] = ["Stuffed bell peppers", "Pasta with tomato sauce", "Vegetable curry"];
+            }
+
+            if (diet.includes("Vegan")) {
+                mealOptions["Breakfast"] = ["Chia pudding", "Peanut butter toast", "Vegan smoothie"];
+                mealOptions["Lunch"] = ["Quinoa salad", "Vegan burrito", "Lentil soup"];
+                mealOptions["Supper"] = ["Stir-fried tofu with rice", "Vegan chili", "Sweet potato stew"];
+            }
+
+            if (diet.includes("Pescatarian")) {
+                mealOptions["Lunch"].push("Grilled tilapia with rice");
+                mealOptions["Supper"].push("Salmon with steamed veggies");
+            }
+
+            // Remove meals containing allergens
+            if (allergies.includes("Dairy")) {
+                mealOptions["Breakfast"] = mealOptions["Breakfast"].filter(meal => !meal.includes("yogurt") && !meal.includes("cheese"));
+                mealOptions["Lunch"] = mealOptions["Lunch"].filter(meal => !meal.includes("cheese"));
+                mealOptions["Supper"] = mealOptions["Supper"].filter(meal => !meal.includes("cheese"));
+            }
+
+            if (allergies.includes("Gluten")) {
+                mealOptions["Breakfast"] = mealOptions["Breakfast"].filter(meal => !meal.includes("toast") && !meal.includes("bread"));
+                mealOptions["Lunch"] = mealOptions["Lunch"].filter(meal => !meal.includes("bread"));
+            }
+
+            // Display meal plan
+            document.getElementById("breakfast").innerText = mealOptions["Breakfast"][0];
+            document.getElementById("lunch").innerText = mealOptions["Lunch"][0];
+            document.getElementById("supper").innerText = mealOptions["Supper"][0];
+
+            document.getElementById("mealPlan").classList.remove("d-none");
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
